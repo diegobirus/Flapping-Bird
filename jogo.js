@@ -71,8 +71,11 @@ const backGround = {
     );
 }
 }
+<<<<<<< HEAD
 function  createFloor() {
 
+=======
+>>>>>>> d88cd7b6f7ae4407e9a183422dff5842aa60bf6d
 const floor = {
           spriteX: 0, 
           spriteY: 610, 
@@ -80,6 +83,7 @@ const floor = {
           height: 112, 
           x: 0, 
           y: canvas.height - 112,
+<<<<<<< HEAD
 
           update() {
             const floorMovement = 1;
@@ -89,6 +93,8 @@ const floor = {
             floor.x = movement % repeat;
           },
 
+=======
+>>>>>>> d88cd7b6f7ae4407e9a183422dff5842aa60bf6d
           draw() {  
             ctx.drawImage ( //drawImage(image: CanvasImageSource, dx: number, dy: number): void
                   sprites,
@@ -103,11 +109,19 @@ const floor = {
     floor.width, floor.height,
     (floor.x + floor.width), floor.y,
     floor.width, floor.height,
+<<<<<<< HEAD
   );
   },
  };
  return floor;
 }
+=======
+);
+
+  }
+ }
+
+>>>>>>> d88cd7b6f7ae4407e9a183422dff5842aa60bf6d
 function colide(flappyBird, floor) {
   const flappyBirdY = flappyBird.y + flappyBird.height;
   const floorY = floor.y;
@@ -119,6 +133,7 @@ function colide(flappyBird, floor) {
     return false;
 }
 
+<<<<<<< HEAD
 function createPipes() {
   const pipes = {
     width: 52,
@@ -216,6 +231,8 @@ changeToScreen(ScreenGameOver)
     return pipes;
 }
 
+=======
+>>>>>>> d88cd7b6f7ae4407e9a183422dff5842aa60bf6d
 function createFlappyBird() {
   const flappyBird = {
     spriteX: 0,
@@ -224,15 +241,22 @@ function createFlappyBird() {
     height: 24,
     x: 10,
     y: 50,
+<<<<<<< HEAD
     jumpFlap: 4.6,
     jump() {
       flappyBird.velocity = -flappyBird.jumpFlap;
+=======
+    flap: 4.6,
+    flap() {
+      flappyBird.velocity = -flappyBird.flap;
+>>>>>>> d88cd7b6f7ae4407e9a183422dff5842aa60bf6d
     },
     gravity: 0.25,
     velocity: 0,
  
  
     update() {
+<<<<<<< HEAD
       if (colide(flappyBird, globais.floor)) {
         changeToScreen(screen.START);
         return;
@@ -268,6 +292,24 @@ updateActualFrame(){
       ctx.drawImage(
         sprites,
         spriteX, spriteY, 
+=======
+      if (colide(flappyBird, floor)) {
+        changeToScreen(screen.START);
+        return;
+
+      }
+
+
+      flappyBird.velocity = flappyBird.velocity + flappyBird.gravity;
+      flappyBird.y = flappyBird.y + flappyBird.velocity;
+    },
+
+    draw() {
+
+      ctx.drawImage(
+        sprites,
+        flappyBird.spriteX, flappyBird.spriteY,
+>>>>>>> d88cd7b6f7ae4407e9a183422dff5842aa60bf6d
         flappyBird.width, flappyBird.height,
         flappyBird.x, flappyBird.y,
         flappyBird.width, flappyBird.height
@@ -277,7 +319,10 @@ updateActualFrame(){
   return flappyBird;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d88cd7b6f7ae4407e9a183422dff5842aa60bf6d
 const globais = {};
 let activeScreen = {};
 
@@ -294,6 +339,7 @@ const screen = {
 START: {
   begin() {
     globais.flappyBird = createFlappyBird();
+<<<<<<< HEAD
     globais.floor = createFloor();  
     globais.pipes = createPipes();
   },
@@ -346,6 +392,40 @@ gameBoard = {
   }
 
    }
+=======
+  },
+  draw() {
+    backGround.draw();
+    floor.draw();
+    globais.flappyBird.draw();
+    getReady.draw ();
+  },
+
+  click(){ 
+  changeToScreen(gameBoard); 
+
+},
+  update() {
+
+   }
+  }
+};
+
+gameBoard = {
+  draw() {
+    backGround.draw();
+    floor.draw();
+    globais.flappyBird.draw();
+  },
+  click () {
+    globais.flappyBird.flap();
+  },
+  update() {
+    globais.flappyBird.update();
+   }
+   };
+       
+>>>>>>> d88cd7b6f7ae4407e9a183422dff5842aa60bf6d
     function loop () {  
 
       activeScreen.draw();
