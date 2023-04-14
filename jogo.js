@@ -136,7 +136,7 @@ function createPipes() {
     draw() {
       pipes.pairs.forEach(function(pair){
         const yRandom = pair.y;
-        const spaceBetweenPipes = 120;
+        const spaceBetweenPipes = 180;
           
         const pipeTopX = pair.x;
         const pipeTopY = yRandom;
